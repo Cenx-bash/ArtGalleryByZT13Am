@@ -1,0 +1,1992 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Discover Filipino culture through art - a curated collection of Visual Arts, Literary Arts, Applied Arts, and Performance Arts showcasing the richness of Philippine heritage."
+    />
+    <meta
+      property="og:title"
+      content="Philippine Art Gallery - Celebrating Filipino Culture"
+    />
+    <meta
+      property="og:description"
+      content="Explore a premium collection of Filipino artworks across visual, literary, applied, and performance arts."
+    />
+    <meta property="og:type" content="website" />
+    <title>
+      Philippine Art Gallery - Celebrating Filipino Culture Through Art
+    </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* CSS Reset & Base Styles */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --color-background: #fafaf8;
+        --color-text-primary: #2a2a2a;
+        --color-accent: #b8735c;
+        --color-accent-hover: #a66552;
+        --color-neutral: #e5e5e3;
+        --color-white: #ffffff;
+        --color-overlay: rgba(0, 0, 0, 0.6);
+        --font-family: "Poppins", sans-serif;
+        --spacing-xs: 1rem;
+        --spacing-sm: 1.5rem;
+        --spacing-md: 2rem;
+        --spacing-lg: 3rem;
+        --spacing-xl: 5rem;
+        --spacing-2xl: 8rem;
+        --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        --shadow-subtle: 0 2px 8px rgba(0, 0, 0, 0.08);
+        --shadow-modal: 0 20px 60px rgba(0, 0, 0, 0.3);
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: var(--font-family);
+        font-size: 16px;
+        line-height: 1.6;
+        color: var(--color-text-primary);
+        background-color: var(--color-background);
+        overflow-x: hidden;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      button {
+        font-family: inherit;
+        cursor: pointer;
+        border: none;
+        background: none;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      /* Typography */
+      h1 {
+        font-size: clamp(2.5rem, 5vw, 3.5rem);
+        font-weight: 300;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+      }
+
+      h2 {
+        font-size: clamp(1.75rem, 4vw, 2.5rem);
+        font-weight: 400;
+        line-height: 1.3;
+        margin-bottom: var(--spacing-md);
+      }
+
+      h3 {
+        font-size: 1.5rem;
+        font-weight: 500;
+        line-height: 1.4;
+      }
+
+      .caption {
+        font-size: 0.875rem;
+        font-weight: 300;
+        color: var(--color-text-primary);
+        opacity: 0.7;
+      }
+
+      /* Container */
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 clamp(1.5rem, 5vw, 3rem);
+      }
+
+      /* Header */
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: var(--color-background);
+        z-index: 1000;
+        transition: var(--transition-smooth);
+        border-bottom: 1px solid transparent;
+      }
+
+      .header.scrolled {
+        border-bottom-color: var(--color-neutral);
+        box-shadow: var(--shadow-subtle);
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem clamp(1.5rem, 5vw, 3rem);
+      }
+
+      .logo {
+        font-size: 1.25rem;
+        font-weight: 500;
+        letter-spacing: 0.025em;
+      }
+
+      .nav-menu {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+
+      .nav-menu a {
+        font-size: 0.95rem;
+        font-weight: 500;
+        letter-spacing: 0.025em;
+        position: relative;
+        transition: var(--transition-smooth);
+      }
+
+      .nav-menu a::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background-color: var(--color-accent);
+        transition: width 0.3s ease;
+      }
+
+      .nav-menu a:hover::after {
+        width: 100%;
+      }
+
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        padding: 0.5rem;
+      }
+
+      .hamburger span {
+        width: 24px;
+        height: 2px;
+        background-color: var(--color-text-primary);
+        transition: var(--transition-smooth);
+      }
+
+      .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(7px, 7px);
+      }
+
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+      }
+
+      /* Hero Section */
+      .hero {
+        position: relative;
+        height: 70vh;
+        min-height: 500px;
+        margin-top: 72px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .hero-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: scale(1);
+        transition: transform 10s ease-out;
+      }
+
+      .hero-bg.loaded {
+        transform: scale(1.05);
+      }
+
+      .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.7) 0%,
+          rgba(0, 0, 0, 0.3) 100%
+        );
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        color: var(--color-white);
+        max-width: 800px;
+        padding: 0 var(--spacing-md);
+      }
+
+      .hero h1 {
+        margin-bottom: var(--spacing-md);
+        text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .hero p {
+        font-size: 1.125rem;
+        font-weight: 300;
+        line-height: 1.7;
+        margin-bottom: var(--spacing-lg);
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+      }
+
+      .btn-primary {
+        display: inline-block;
+        padding: 1rem 2.5rem;
+        background-color: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        color: var(--color-white);
+        font-weight: 500;
+        font-size: 0.95rem;
+        letter-spacing: 0.025em;
+        border-radius: 6px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        transition: var(--transition-smooth);
+      }
+
+      .btn-primary:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: translateY(-2px);
+      }
+
+      /* Section Spacing */
+      section {
+        padding: clamp(3rem, 10vw, 5rem) 0;
+      }
+
+      section:not(.hero) {
+        opacity: 0;
+        animation: fadeInUp 0.8s ease forwards;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Filter Bar */
+      .filter-bar {
+        position: sticky;
+        top: 72px;
+        background-color: var(--color-background);
+        padding: var(--spacing-md) 0;
+        margin-bottom: var(--spacing-lg);
+        border-bottom: 1px solid var(--color-neutral);
+        z-index: 100;
+      }
+
+      .filter-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--spacing-sm);
+        align-items: center;
+      }
+
+      .filter-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+
+      .filter-pill {
+        padding: 0.5rem 1.25rem;
+        background-color: transparent;
+        color: var(--color-text-primary);
+        font-size: 0.9rem;
+        font-weight: 400;
+        border: 1px solid var(--color-neutral);
+        border-radius: 50px;
+        transition: var(--transition-smooth);
+      }
+
+      .filter-pill:hover {
+        border-color: var(--color-accent);
+        transform: translateY(-2px);
+      }
+
+      .filter-pill.active {
+        background-color: var(--color-accent);
+        color: var(--color-white);
+        border-color: var(--color-accent);
+      }
+
+      .search-input {
+        flex: 1;
+        min-width: 250px;
+        padding: 0.75rem 1.25rem;
+        border: 1px solid var(--color-neutral);
+        border-radius: 6px;
+        font-family: inherit;
+        font-size: 0.95rem;
+        background-color: var(--color-white);
+        transition: var(--transition-smooth);
+      }
+
+      .search-input:focus {
+        outline: none;
+        border-color: var(--color-accent);
+      }
+
+      /* Artwork Grid */
+      .artwork-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: clamp(1.5rem, 4vw, 2rem);
+        margin-top: var(--spacing-lg);
+      }
+
+      .artwork-card {
+        cursor: pointer;
+        overflow: hidden;
+        background-color: var(--color-white);
+        border-radius: 6px;
+        transition: var(--transition-smooth);
+        opacity: 0;
+        animation: fadeInStagger 0.6s ease forwards;
+      }
+
+      @keyframes fadeInStagger {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .artwork-card:nth-child(1) {
+        animation-delay: 0s;
+      }
+      .artwork-card:nth-child(2) {
+        animation-delay: 0.1s;
+      }
+      .artwork-card:nth-child(3) {
+        animation-delay: 0.2s;
+      }
+      .artwork-card:nth-child(4) {
+        animation-delay: 0.3s;
+      }
+      .artwork-card:nth-child(5) {
+        animation-delay: 0.4s;
+      }
+      .artwork-card:nth-child(6) {
+        animation-delay: 0.5s;
+      }
+
+      .artwork-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-subtle);
+      }
+
+      .artwork-image-container {
+        position: relative;
+        aspect-ratio: 4/5;
+        overflow: hidden;
+        background-color: var(--color-neutral);
+      }
+
+      .artwork-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .artwork-card:hover .artwork-image {
+        transform: scale(1.05);
+      }
+
+      .artwork-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.8) 0%,
+          transparent 100%
+        );
+        padding: var(--spacing-md);
+        color: var(--color-white);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .artwork-card:hover .artwork-overlay {
+        opacity: 1;
+      }
+
+      .artwork-overlay h4 {
+        font-size: 1.125rem;
+        font-weight: 500;
+        margin-bottom: 0.25rem;
+      }
+
+      .artwork-overlay .caption {
+        color: var(--color-white);
+        opacity: 0.9;
+      }
+
+      .artwork-info {
+        padding: var(--spacing-sm);
+      }
+
+      .artwork-info h4 {
+        font-size: 1.125rem;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+      }
+
+      .category-badge {
+        display: inline-block;
+        padding: 0.25rem 0.75rem;
+        background-color: var(--color-accent);
+        color: var(--color-white);
+        font-size: 0.75rem;
+        font-weight: 500;
+        border-radius: 4px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-top: 0.5rem;
+      }
+
+      /* Featured Artists */
+      .artists-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: clamp(2rem, 5vw, 3rem);
+        margin-top: var(--spacing-lg);
+      }
+
+      .artist-card {
+        display: flex;
+        gap: var(--spacing-md);
+        padding: var(--spacing-md);
+        background-color: var(--color-white);
+        border-radius: 6px;
+        transition: var(--transition-smooth);
+      }
+
+      .artist-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-subtle);
+      }
+
+      .artist-photo {
+        flex-shrink: 0;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid var(--color-neutral);
+      }
+
+      .artist-info h3 {
+        font-size: 1.25rem;
+        margin-bottom: 0.25rem;
+      }
+
+      .artist-specialty {
+        color: var(--color-accent);
+        font-size: 0.9rem;
+        font-weight: 500;
+        margin-bottom: 0.75rem;
+      }
+
+      .artist-bio {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        opacity: 0.8;
+      }
+
+      /* Exhibitions Carousel */
+      .exhibitions-carousel {
+        position: relative;
+        margin-top: var(--spacing-lg);
+      }
+
+      .carousel-container {
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        scroll-behavior: smooth;
+      }
+
+      .carousel-container::-webkit-scrollbar {
+        display: none;
+      }
+
+      .carousel-track {
+        display: flex;
+        gap: var(--spacing-md);
+      }
+
+      .exhibition-card {
+        flex: 0 0 auto;
+        width: clamp(300px, 40vw, 450px);
+        scroll-snap-align: start;
+        background-color: var(--color-white);
+        border-radius: 6px;
+        overflow: hidden;
+        transition: var(--transition-smooth);
+      }
+
+      .exhibition-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-subtle);
+      }
+
+      .exhibition-image {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+      }
+
+      .exhibition-info {
+        padding: var(--spacing-md);
+      }
+
+      .exhibition-info h3 {
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .exhibition-dates {
+        color: var(--color-accent);
+        font-size: 0.9rem;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+      }
+
+      .exhibition-venue {
+        font-size: 0.9rem;
+        opacity: 0.7;
+      }
+
+      .carousel-nav {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: var(--spacing-md);
+      }
+
+      .carousel-btn {
+        width: 40px;
+        height: 40px;
+        background-color: var(--color-accent);
+        color: var(--color-white);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition-smooth);
+        font-size: 1.25rem;
+      }
+
+      .carousel-btn:hover {
+        background-color: var(--color-accent-hover);
+        transform: scale(1.1);
+      }
+
+      .carousel-btn:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+      }
+
+      .carousel-btn:disabled:hover {
+        transform: none;
+      }
+
+      /* About Section */
+      .about-content {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .about-content p {
+        font-size: 1.125rem;
+        line-height: 1.8;
+        margin-bottom: var(--spacing-md);
+        opacity: 0.85;
+      }
+
+      /* Footer */
+      .footer {
+        background-color: var(--color-text-primary);
+        color: var(--color-white);
+        padding: var(--spacing-xl) 0 var(--spacing-md);
+        margin-top: var(--spacing-2xl);
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: var(--spacing-lg);
+        margin-bottom: var(--spacing-lg);
+      }
+
+      .footer-section h3 {
+        font-size: 1.125rem;
+        margin-bottom: var(--spacing-sm);
+      }
+
+      .footer-section p {
+        opacity: 0.8;
+        line-height: 1.7;
+      }
+
+      .footer-links {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 0.75rem;
+      }
+
+      .footer-links a {
+        opacity: 0.8;
+        transition: var(--transition-smooth);
+      }
+
+      .footer-links a:hover {
+        opacity: 1;
+        color: var(--color-accent);
+      }
+
+      .newsletter-form {
+        display: flex;
+        gap: 0.5rem;
+        margin-top: var(--spacing-sm);
+      }
+
+      .newsletter-input {
+        flex: 1;
+        padding: 0.75rem 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background-color: rgba(255, 255, 255, 0.1);
+        color: var(--color-white);
+        border-radius: 6px;
+        font-family: inherit;
+      }
+
+      .newsletter-input::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      .newsletter-input:focus {
+        outline: none;
+        border-color: var(--color-accent);
+      }
+
+      .newsletter-btn {
+        padding: 0.75rem 1.5rem;
+        background-color: var(--color-accent);
+        color: var(--color-white);
+        border-radius: 6px;
+        font-weight: 500;
+        transition: var(--transition-smooth);
+      }
+
+      .newsletter-btn:hover {
+        background-color: var(--color-accent-hover);
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1rem;
+        margin-top: var(--spacing-sm);
+      }
+
+      .social-link {
+        width: 40px;
+        height: 40px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition-smooth);
+      }
+
+      .social-link:hover {
+        background-color: var(--color-accent);
+        transform: translateY(-2px);
+      }
+
+      .footer-bottom {
+        padding-top: var(--spacing-md);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: center;
+        opacity: 0.6;
+        font-size: 0.875rem;
+      }
+
+      /* Modal */
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--color-overlay);
+        z-index: 2000;
+        align-items: center;
+        justify-content: center;
+        padding: var(--spacing-md);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .modal.active {
+        display: flex;
+        opacity: 1;
+      }
+
+      .modal-content {
+        background-color: var(--color-white);
+        border-radius: 8px;
+        max-width: 1200px;
+        width: 100%;
+        max-height: 90vh;
+        overflow-y: auto;
+        box-shadow: var(--shadow-modal);
+        transform: scale(0.9);
+        transition: transform 0.2s ease;
+      }
+
+      .modal.active .modal-content {
+        transform: scale(1);
+      }
+
+      .modal-header {
+        position: sticky;
+        top: 0;
+        background-color: var(--color-white);
+        padding: var(--spacing-md);
+        border-bottom: 1px solid var(--color-neutral);
+        display: flex;
+        justify-content: flex-end;
+        z-index: 10;
+      }
+
+      .modal-close {
+        width: 40px;
+        height: 40px;
+        background-color: transparent;
+        color: var(--color-text-primary);
+        border-radius: 50%;
+        font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition-smooth);
+      }
+
+      .modal-close:hover {
+        background-color: var(--color-neutral);
+      }
+
+      .modal-body {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        gap: var(--spacing-lg);
+        padding: var(--spacing-lg);
+      }
+
+      .modal-image {
+        width: 100%;
+        border-radius: 6px;
+      }
+
+      .modal-details h2 {
+        margin-bottom: var(--spacing-sm);
+      }
+
+      .modal-meta {
+        margin-bottom: var(--spacing-md);
+      }
+
+      .meta-item {
+        display: flex;
+        margin-bottom: 0.75rem;
+      }
+
+      .meta-label {
+        font-weight: 500;
+        min-width: 120px;
+        color: var(--color-text-primary);
+      }
+
+      .meta-value {
+        opacity: 0.8;
+      }
+
+      .modal-description {
+        line-height: 1.8;
+        opacity: 0.85;
+      }
+
+      /* Mobile Overlay Menu */
+      .mobile-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--color-background);
+        z-index: 999;
+        padding: 6rem 2rem 2rem;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .mobile-overlay.active {
+        display: block;
+        opacity: 1;
+      }
+
+      .mobile-overlay .nav-menu {
+        flex-direction: column;
+        gap: 2rem;
+        font-size: 1.5rem;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .hamburger {
+          display: flex;
+        }
+
+        .nav-menu {
+          display: none;
+        }
+
+        .hero {
+          height: 60vh;
+          min-height: 400px;
+        }
+
+        .filter-container {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .search-input {
+          width: 100%;
+        }
+
+        .artwork-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .artists-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .artist-card {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+
+        .modal-body {
+          grid-template-columns: 1fr;
+        }
+
+        .exhibition-card {
+          width: 85vw;
+        }
+      }
+
+      @media (min-width: 769px) and (max-width: 1024px) {
+        .artwork-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      /* Utility Classes */
+      .hidden {
+        display: none !important;
+      }
+
+      .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ==================== HTML ==================== -->
+
+    <!-- Header -->
+    <header class="header" id="header">
+      <div class="header-content">
+        <div class="logo">Philippine Art Gallery</div>
+        <nav aria-label="Main navigation">
+          <ul class="nav-menu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#collections">Collections</a></li>
+            <li><a href="#artists">Artists</a></li>
+            <li><a href="#exhibitions">Exhibitions</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <button
+          class="hamburger"
+          id="hamburger"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Mobile Overlay Menu -->
+    <div
+      class="mobile-overlay"
+      id="mobileOverlay"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Mobile navigation"
+    >
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="#home" class="mobile-nav-link">Home</a></li>
+          <li>
+            <a href="#collections" class="mobile-nav-link">Collections</a>
+          </li>
+          <li><a href="#artists" class="mobile-nav-link">Artists</a></li>
+          <li>
+            <a href="#exhibitions" class="mobile-nav-link">Exhibitions</a>
+          </li>
+          <li><a href="#about" class="mobile-nav-link">About</a></li>
+          <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <img
+        src="attached_assets/generated_images/Hero_Filipino_contemporary_painting_2ee02e8f.png"
+        alt="Contemporary Filipino artwork featuring vibrant colors and traditional patterns"
+        class="hero-bg"
+        id="heroBg"
+      />
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1>Celebrating Filipino Culture Through Art</h1>
+        <p>
+          Discover the richness of Philippine heritage through a curated
+          collection of visual, literary, applied, and performance arts that
+          honor our ancestors and inspire future generations.
+        </p>
+        <a href="#collections" class="btn-primary">Explore Collections</a>
+      </div>
+    </section>
+
+    <!-- Collections Section -->
+    <section id="collections">
+      <div class="container">
+        <h2>Our Collections</h2>
+
+        <!-- Filter Bar -->
+        <div class="filter-bar">
+          <div class="container">
+            <div class="filter-container">
+              <div
+                class="filter-pills"
+                role="group"
+                aria-label="Filter artworks by category"
+              >
+                <button
+                  class="filter-pill active"
+                  data-category="all"
+                  data-type="category"
+                >
+                  All Artworks
+                </button>
+                <button
+                  class="filter-pill"
+                  data-category="visual"
+                  data-type="category"
+                >
+                  Visual Arts
+                </button>
+                <button
+                  class="filter-pill"
+                  data-category="literary"
+                  data-type="category"
+                >
+                  Literary Arts
+                </button>
+                <button
+                  class="filter-pill"
+                  data-category="applied"
+                  data-type="category"
+                >
+                  Applied Arts
+                </button>
+                <button
+                  class="filter-pill"
+                  data-category="performance"
+                  data-type="category"
+                >
+                  Performance Arts
+                </button>
+              </div>
+              <div
+                class="filter-pills"
+                role="group"
+                aria-label="Filter artworks by exhibition"
+                style="margin-top: 0.75rem"
+              >
+                <button
+                  class="filter-pill active"
+                  data-exhibition="all"
+                  data-type="exhibition"
+                >
+                  All Exhibitions
+                </button>
+                <button
+                  class="filter-pill"
+                  data-exhibition="Contemporary Filipino Voices"
+                  data-type="exhibition"
+                >
+                  Contemporary Voices
+                </button>
+                <button
+                  class="filter-pill"
+                  data-exhibition="Woven Stories"
+                  data-type="exhibition"
+                >
+                  Woven Stories
+                </button>
+                <button
+                  class="filter-pill"
+                  data-exhibition="Written Heritage"
+                  data-type="exhibition"
+                >
+                  Written Heritage
+                </button>
+                <button
+                  class="filter-pill"
+                  data-exhibition="Living Traditions"
+                  data-type="exhibition"
+                >
+                  Living Traditions
+                </button>
+              </div>
+              <input
+                type="search"
+                class="search-input"
+                placeholder="Search by artist or title..."
+                aria-label="Search artworks by artist or title"
+                id="searchInput"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Accessibility: Live region for filter announcements -->
+        <div
+          class="visually-hidden"
+          role="status"
+          aria-live="polite"
+          aria-atomic="true"
+          id="filterAnnouncement"
+        ></div>
+
+        <!-- Artwork Grid -->
+        <div class="artwork-grid" id="artworkGrid">
+          <!-- Artworks will be dynamically inserted here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Artists Section -->
+    <section id="artists">
+      <div class="container">
+        <h2>Featured Artists</h2>
+        <div class="artists-grid" id="artistsGrid">
+          <!-- Artists will be dynamically inserted here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Exhibitions Section -->
+    <section id="exhibitions">
+      <div class="container">
+        <h2>Current Exhibitions</h2>
+        <div class="exhibitions-carousel">
+          <div class="carousel-container" id="carouselContainer">
+            <div class="carousel-track" id="carouselTrack">
+              <!-- Exhibition cards will be dynamically inserted here -->
+            </div>
+          </div>
+          <div
+            class="carousel-nav"
+            role="group"
+            aria-label="Carousel navigation"
+          >
+            <button
+              class="carousel-btn"
+              id="prevBtn"
+              aria-label="Previous exhibition"
+            >
+              ‹
+            </button>
+            <button
+              class="carousel-btn"
+              id="nextBtn"
+              aria-label="Next exhibition"
+            >
+              ›
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+      <div class="container">
+        <div class="about-content">
+          <h2>About Us</h2>
+          <p>
+            The Philippine Art Gallery is dedicated to preserving and promoting
+            Filipino artistic heritage. Through our carefully curated
+            collections, we showcase the diversity and richness of Philippine
+            arts across multiple disciplines.
+          </p>
+          <p>
+            Our mission is to make Filipino art accessible to collectors,
+            curators, students, and the general public, fostering appreciation
+            for the cultural treasures that define our national identity.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>About</h3>
+            <p>
+              Celebrating Filipino culture through a premium collection of
+              visual, literary, applied, and performance arts.
+            </p>
+            <div
+              class="social-links"
+              role="list"
+              aria-label="Social media links"
+            >
+              <a
+                href="#"
+                class="social-link"
+                aria-label="Facebook"
+                role="listitem"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="social-link"
+                aria-label="Instagram"
+                role="listitem"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="social-link"
+                aria-label="Twitter"
+                role="listitem"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="#collections">Collections</a></li>
+              <li><a href="#artists">Artists</a></li>
+              <li><a href="#exhibitions">Exhibitions</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h3>Newsletter</h3>
+            <p>
+              Subscribe to receive updates about new exhibitions and artworks.
+            </p>
+            <form
+              class="newsletter-form"
+              id="newsletterForm"
+              aria-label="Newsletter signup"
+            >
+              <input
+                type="email"
+                class="newsletter-input"
+                placeholder="Your email address"
+                aria-label="Email address"
+                required
+                id="newsletterEmail"
+              />
+              <button type="submit" class="newsletter-btn">Subscribe</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            &copy; 2025 ZT13Am . Celebrating Filipino heritage
+            through art. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Artwork Detail Modal -->
+    <div
+      class="modal"
+      id="artworkModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalTitle"
+    >
+      <div class="modal-content">
+        <div class="modal-header">
+          <button class="modal-close" id="modalClose" aria-label="Close modal">
+            ✕
+          </button>
+        </div>
+        <div class="modal-body" id="modalBody">
+          <!-- Modal content will be dynamically inserted here -->
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Data
+      const artworks = [
+        {
+          id: 1,
+          title: "Jeepney Dreams",
+          artist: "Maria Santos",
+          year: "2023",
+          medium: "Acrylic on Canvas",
+          dimensions: "100 × 80 cm",
+          category: "visual",
+          exhibition: "Contemporary Filipino Voices",
+          description:
+            "A vibrant celebration of Philippine street culture, this piece captures the iconic jeepney as a symbol of Filipino resilience and creativity. The intricate floral patterns pay homage to traditional folk art while embracing modern expressionism.",
+          image:
+            "attached_assets/generated_images/Filipino_jeepney_folk_art_aa9574a9.png",
+        },
+        {
+          id: 2,
+          title: "Banaue: Golden Terraces",
+          artist: "Juan dela Cruz",
+          year: "2022",
+          medium: "Oil on Canvas",
+          dimensions: "120 × 90 cm",
+          category: "visual",
+          exhibition: "Landscapes of Heritage",
+          description:
+            "This stunning landscape depicts the UNESCO World Heritage site of Banaue Rice Terraces during golden hour. The terraced fields represent over 2,000 years of indigenous engineering and sustainable agriculture, showcasing the harmonious relationship between Filipino ancestors and nature.",
+          image:
+            "attached_assets/generated_images/Banaue_rice_terraces_painting_8bf15f9f.png",
+        },
+        {
+          id: 3,
+          title: "Baybayin Chronicles",
+          artist: "Sofia Reyes",
+          year: "2024",
+          medium: "Gold Leaf & Ink on Parchment",
+          dimensions: "45 × 60 cm",
+          category: "literary",
+          exhibition: "Written Heritage",
+          description:
+            "An illuminated manuscript featuring ancient Baybayin script, the pre-colonial writing system of the Philippines. This contemporary interpretation bridges ancestral literacy with modern calligraphic artistry, preserving cultural memory through beautiful letterforms.",
+          image:
+            "attached_assets/generated_images/Baybayin_script_manuscript_1298871b.png",
+        },
+        {
+          id: 4,
+          title: "T'nalak Traditions",
+          artist: "Lang Dulay Legacy",
+          year: "2023",
+          medium: "Handwoven Abaca Fiber",
+          dimensions: "200 × 150 cm",
+          category: "applied",
+          exhibition: "Woven Stories",
+          description:
+            "A masterwork of T'boli weaving tradition, this T'nalak cloth features sacred geometric patterns revealed through dreams to master weavers. The intricate design honors Lang Dulay, a National Living Treasure, representing generations of indigenous textile artistry.",
+          image:
+            "attached_assets/generated_images/T'nalak_textile_weaving_6bd1fa8f.png",
+        },
+        {
+          id: 5,
+          title: "Kalinga Vessel",
+          artist: "Pottery Collective",
+          year: "2023",
+          medium: "Earthenware Clay",
+          dimensions: "40 × 30 cm",
+          category: "applied",
+          exhibition: "Earth and Fire",
+          description:
+            "This traditional Kalinga pottery exemplifies centuries-old ceramic techniques passed down through generations. The geometric tribal patterns etched into the terracotta surface tell stories of community, harvest, and spiritual beliefs unique to the Cordillera region.",
+          image:
+            "attached_assets/generated_images/Kalinga_pottery_vase_c8f47fe3.png",
+        },
+        {
+          id: 6,
+          title: "Tinikling in Motion",
+          artist: "Dance Documentation Project",
+          year: "2024",
+          medium: "Fine Art Photography",
+          dimensions: "80 × 100 cm",
+          category: "performance",
+          exhibition: "Living Traditions",
+          description:
+            "A dynamic capture of the Philippines' national dance, Tinikling, where dancers gracefully step between bamboo poles. This photograph freezes a moment of perfect synchronization, celebrating the rhythm, agility, and cultural pride embodied in traditional Filipino performance arts.",
+          image:
+            "attached_assets/generated_images/Tinikling_bamboo_dance_performance_b0031241.png",
+        },
+      ];
+
+      const artists = [
+        {
+          name: "Maria Santos",
+          specialty: "Contemporary Visual Artist",
+          bio: "Known for vibrant folk-inspired paintings that bridge traditional Filipino imagery with modern expressionism. Her work celebrates street culture and everyday Filipino life.",
+          photo:
+            "attached_assets/generated_images/Filipino_female_artist_portrait_b4075d46.png",
+        },
+        {
+          name: "Juan dela Cruz",
+          specialty: "Landscape Painter",
+          bio: "Specializes in capturing the natural beauty of Philippine landscapes. His work documents heritage sites and explores the relationship between Filipinos and their environment.",
+          photo:
+            "attached_assets/generated_images/Filipino_male_artist_portrait_8456af65.png",
+        },
+        {
+          name: "Sofia Reyes",
+          specialty: "Calligrapher & Literary Artist",
+          bio: "Dedicated to reviving and preserving Baybayin script through contemporary calligraphic art. Her illuminated manuscripts merge ancestral literacy with modern artistic expression.",
+          photo:
+            "attached_assets/generated_images/Young_Filipino_artist_portrait_ac7cb3de.png",
+        },
+        {
+          name: "Roberto Fernandez",
+          specialty: "Cultural Curator & Photographer",
+          bio: "Documents traditional Filipino performance arts and indigenous crafts. His photography preserves living cultural traditions for future generations.",
+          photo:
+            "attached_assets/generated_images/Senior_Filipino_artist_portrait_3c14bb58.png",
+        },
+      ];
+
+      const exhibitions = [
+        {
+          title: "Contemporary Filipino Voices",
+          dates: "January 15 - March 30, 2024",
+          venue: "Main Gallery, Manila",
+          image:
+            "attached_assets/generated_images/Filipino_art_exhibition_gallery_889fe884.png",
+        },
+        {
+          title: "Woven Stories: Textile Heritage",
+          dates: "February 1 - April 15, 2024",
+          venue: "Heritage Hall, Baguio",
+          image:
+            "attached_assets/generated_images/Art_exhibition_opening_event_db724440.png",
+        },
+        {
+          title: "Living Traditions",
+          dates: "March 10 - May 25, 2024",
+          venue: "Cultural Center, Cebu",
+          image:
+            "attached_assets/generated_images/Heritage_art_exhibition_display_48097625.png",
+        },
+      ];
+
+      // State
+      let currentCategoryFilter = "all";
+      let currentExhibitionFilter = "all";
+      let searchQuery = "";
+      let focusedElementBeforeModal = null;
+      let modalFocusableElements = [];
+      let firstFocusableElement = null;
+      let lastFocusableElement = null;
+
+      // DOM Elements
+      const header = document.getElementById("header");
+      const hamburger = document.getElementById("hamburger");
+      const mobileOverlay = document.getElementById("mobileOverlay");
+      const artworkGrid = document.getElementById("artworkGrid");
+      const artistsGrid = document.getElementById("artistsGrid");
+      const carouselTrack = document.getElementById("carouselTrack");
+      const carouselContainer = document.getElementById("carouselContainer");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
+      const searchInput = document.getElementById("searchInput");
+      const filterPills = document.querySelectorAll(".filter-pill");
+      const artworkModal = document.getElementById("artworkModal");
+      const modalClose = document.getElementById("modalClose");
+      const modalBody = document.getElementById("modalBody");
+      const newsletterForm = document.getElementById("newsletterForm");
+      const heroBg = document.getElementById("heroBg");
+
+      // Initialize
+      function init() {
+        renderArtworks();
+        renderArtists();
+        renderExhibitions();
+        setupEventListeners();
+        setupIntersectionObserver();
+        setupLazyLoading();
+
+        // Trigger hero parallax animation
+        setTimeout(() => {
+          heroBg.classList.add("loaded");
+        }, 100);
+      }
+
+      // Render Functions
+      function renderArtworks() {
+        const filteredArtworks = artworks.filter((artwork) => {
+          const matchesCategoryFilter =
+            currentCategoryFilter === "all" ||
+            artwork.category === currentCategoryFilter;
+          const matchesExhibitionFilter =
+            currentExhibitionFilter === "all" ||
+            artwork.exhibition === currentExhibitionFilter;
+          const matchesSearch =
+            searchQuery === "" ||
+            artwork.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            artwork.artist.toLowerCase().includes(searchQuery.toLowerCase());
+          return (
+            matchesCategoryFilter && matchesExhibitionFilter && matchesSearch
+          );
+        });
+
+        // Announce results to screen readers
+        announceFilterResults(filteredArtworks.length);
+
+        artworkGrid.innerHTML = filteredArtworks
+          .map(
+            (artwork, index) => `
+        <article 
+          class="artwork-card" 
+          data-id="${artwork.id}"
+          style="animation-delay: ${index * 0.1}s"
+          role="button"
+          tabindex="0"
+          aria-label="View details for ${artwork.title} by ${artwork.artist}"
+        >
+          <div class="artwork-image-container">
+            <img 
+              src="${artwork.image}" 
+              alt="${artwork.title} - ${artwork.description.substring(0, 100)}"
+              class="artwork-image"
+              loading="lazy"
+            >
+            <div class="artwork-overlay">
+              <h4>${artwork.title}</h4>
+              <p class="caption">${artwork.artist}, ${artwork.year}</p>
+            </div>
+          </div>
+          <div class="artwork-info">
+            <h4>${artwork.title}</h4>
+            <p class="caption">${artwork.artist}</p>
+            <span class="category-badge">${getCategoryLabel(
+              artwork.category
+            )}</span>
+          </div>
+        </article>
+      `
+          )
+          .join("");
+
+        // Add click listeners to artwork cards
+        document.querySelectorAll(".artwork-card").forEach((card) => {
+          card.addEventListener("click", () => openModal(card.dataset.id));
+          card.addEventListener("keypress", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              openModal(card.dataset.id);
+            }
+          });
+        });
+      }
+
+      function renderArtists() {
+        artistsGrid.innerHTML = artists
+          .map(
+            (artist) => `
+        <article class="artist-card">
+          <img 
+            src="${artist.photo}" 
+            alt="Portrait of ${artist.name}"
+            class="artist-photo"
+            loading="lazy"
+          >
+          <div class="artist-info">
+            <h3>${artist.name}</h3>
+            <p class="artist-specialty">${artist.specialty}</p>
+            <p class="artist-bio">${artist.bio}</p>
+          </div>
+        </article>
+      `
+          )
+          .join("");
+      }
+
+      function renderExhibitions() {
+        carouselTrack.innerHTML = exhibitions
+          .map(
+            (exhibition) => `
+        <article class="exhibition-card">
+          <img 
+            src="${exhibition.image}" 
+            alt="${exhibition.title} exhibition"
+            class="exhibition-image"
+            loading="lazy"
+          >
+          <div class="exhibition-info">
+            <h3>${exhibition.title}</h3>
+            <p class="exhibition-dates">${exhibition.dates}</p>
+            <p class="exhibition-venue">${exhibition.venue}</p>
+          </div>
+        </article>
+      `
+          )
+          .join("");
+      }
+
+      // Event Listeners
+      function setupEventListeners() {
+        // Header scroll effect
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 50) {
+            header.classList.add("scrolled");
+          } else {
+            header.classList.remove("scrolled");
+          }
+        });
+
+        // Mobile menu toggle
+        hamburger.addEventListener("click", toggleMobileMenu);
+
+        // Mobile nav links
+        document.querySelectorAll(".mobile-nav-link").forEach((link) => {
+          link.addEventListener("click", () => {
+            closeMobileMenu();
+          });
+        });
+
+        // Filter pills
+        filterPills.forEach((pill) => {
+          pill.addEventListener("click", () => {
+            const filterType = pill.dataset.type;
+
+            if (filterType === "category") {
+              // Remove active from category pills only
+              document
+                .querySelectorAll('[data-type="category"]')
+                .forEach((p) => p.classList.remove("active"));
+              pill.classList.add("active");
+              currentCategoryFilter = pill.dataset.category;
+            } else if (filterType === "exhibition") {
+              // Remove active from exhibition pills only
+              document
+                .querySelectorAll('[data-type="exhibition"]')
+                .forEach((p) => p.classList.remove("active"));
+              pill.classList.add("active");
+              currentExhibitionFilter = pill.dataset.exhibition;
+            }
+
+            renderArtworks();
+          });
+        });
+
+        // Search input
+        searchInput.addEventListener("input", (e) => {
+          searchQuery = e.target.value;
+          renderArtworks();
+        });
+
+        // Carousel navigation
+        prevBtn.addEventListener("click", () => scrollCarousel("prev"));
+        nextBtn.addEventListener("click", () => scrollCarousel("next"));
+
+        // Carousel scroll listener for button states
+        carouselContainer.addEventListener("scroll", updateCarouselButtons);
+
+        // Modal close
+        modalClose.addEventListener("click", closeModal);
+        artworkModal.addEventListener("click", (e) => {
+          if (e.target === artworkModal) closeModal();
+        });
+
+        // Keyboard navigation for modal and focus trap
+        document.addEventListener("keydown", (e) => {
+          if (artworkModal.classList.contains("active")) {
+            if (e.key === "Escape") {
+              closeModal();
+            }
+
+            // Focus trap
+            if (e.key === "Tab") {
+              if (modalFocusableElements.length === 0) return;
+
+              if (e.shiftKey) {
+                // Shift + Tab
+                if (document.activeElement === firstFocusableElement) {
+                  e.preventDefault();
+                  lastFocusableElement.focus();
+                }
+              } else {
+                // Tab
+                if (document.activeElement === lastFocusableElement) {
+                  e.preventDefault();
+                  firstFocusableElement.focus();
+                }
+              }
+            }
+          }
+        });
+
+        // Parallax effect on hero scroll
+        window.addEventListener("scroll", () => {
+          const scrolled = window.pageYOffset;
+          const parallaxSpeed = 0.5;
+          if (scrolled < window.innerHeight) {
+            heroBg.style.transform = `translateY(${
+              scrolled * parallaxSpeed
+            }px) scale(1.05)`;
+          }
+        });
+
+        // Newsletter form
+        newsletterForm.addEventListener("submit", handleNewsletterSubmit);
+      }
+
+      // Mobile Menu
+      function toggleMobileMenu() {
+        const isOpen = mobileOverlay.classList.contains("active");
+        if (isOpen) {
+          closeMobileMenu();
+        } else {
+          openMobileMenu();
+        }
+      }
+
+      function openMobileMenu() {
+        mobileOverlay.classList.add("active");
+        hamburger.classList.add("active");
+        hamburger.setAttribute("aria-expanded", "true");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeMobileMenu() {
+        mobileOverlay.classList.remove("active");
+        hamburger.classList.remove("active");
+        hamburger.setAttribute("aria-expanded", "false");
+        document.body.style.overflow = "";
+      }
+
+      // Modal Functions
+      function openModal(artworkId) {
+        const artwork = artworks.find((a) => a.id === parseInt(artworkId));
+        if (!artwork) return;
+
+        focusedElementBeforeModal = document.activeElement;
+
+        modalBody.innerHTML = `
+        <div>
+          <img src="${artwork.image}" alt="${
+          artwork.title
+        }" class="modal-image">
+        </div>
+        <div class="modal-details">
+          <h2 id="modalTitle">${artwork.title}</h2>
+          <div class="modal-meta">
+            <div class="meta-item">
+              <span class="meta-label">Artist:</span>
+              <span class="meta-value">${artwork.artist}</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Year:</span>
+              <span class="meta-value">${artwork.year}</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Medium:</span>
+              <span class="meta-value">${artwork.medium}</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Dimensions:</span>
+              <span class="meta-value">${artwork.dimensions}</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Category:</span>
+              <span class="meta-value">${getCategoryLabel(
+                artwork.category
+              )}</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Exhibition:</span>
+              <span class="meta-value">${artwork.exhibition}</span>
+            </div>
+          </div>
+          <p class="modal-description">${artwork.description}</p>
+        </div>
+      `;
+
+        artworkModal.classList.add("active");
+        document.body.style.overflow = "hidden";
+
+        // Set up focus trap
+        setTimeout(() => {
+          modalFocusableElements = Array.from(
+            artworkModal.querySelectorAll(
+              'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+            )
+          );
+          firstFocusableElement = modalFocusableElements[0];
+          lastFocusableElement =
+            modalFocusableElements[modalFocusableElements.length - 1];
+
+          // Focus first element
+          if (firstFocusableElement) {
+            firstFocusableElement.focus();
+          }
+        }, 100);
+      }
+
+      function closeModal() {
+        artworkModal.classList.remove("active");
+        document.body.style.overflow = "";
+
+        // Return focus
+        if (focusedElementBeforeModal) {
+          focusedElementBeforeModal.focus();
+        }
+      }
+
+      // Carousel Functions
+      function scrollCarousel(direction) {
+        const cardWidth =
+          carouselContainer.querySelector(".exhibition-card").offsetWidth;
+        const gap = 32; // 2rem in pixels
+        const scrollAmount = cardWidth + gap;
+
+        if (direction === "next") {
+          carouselContainer.scrollBy({
+            left: scrollAmount,
+            behavior: "smooth",
+          });
+        } else {
+          carouselContainer.scrollBy({
+            left: -scrollAmount,
+            behavior: "smooth",
+          });
+        }
+      }
+
+      function updateCarouselButtons() {
+        const isAtStart = carouselContainer.scrollLeft === 0;
+        const isAtEnd =
+          carouselContainer.scrollLeft + carouselContainer.clientWidth >=
+          carouselContainer.scrollWidth - 1;
+
+        prevBtn.disabled = isAtStart;
+        nextBtn.disabled = isAtEnd;
+      }
+
+      // Newsletter
+      function handleNewsletterSubmit(e) {
+        e.preventDefault();
+        const email = document.getElementById("newsletterEmail").value;
+
+        // Simple validation
+        if (email && email.includes("@")) {
+          alert(`Thank you for subscribing! We'll send updates to ${email}`);
+          newsletterForm.reset();
+        }
+      }
+
+      // Lazy Loading with Intersection Observer
+      function setupLazyLoading() {
+        const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+
+        if ("IntersectionObserver" in window) {
+          const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.src; // Trigger load
+                imageObserver.unobserve(img);
+              }
+            });
+          });
+
+          lazyImages.forEach((img) => imageObserver.observe(img));
+        }
+      }
+
+      // Fade in sections on scroll
+      function setupIntersectionObserver() {
+        const sections = document.querySelectorAll("section:not(.hero)");
+
+        const sectionObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+
+        sections.forEach((section) => sectionObserver.observe(section));
+      }
+
+      // Utility Functions
+      function getCategoryLabel(category) {
+        const labels = {
+          visual: "Visual Arts",
+          literary: "Literary Arts",
+          applied: "Applied Arts",
+          performance: "Performance Arts",
+        };
+        return labels[category] || category;
+      }
+
+      function announceFilterResults(count) {
+        const announcement = document.getElementById("filterAnnouncement");
+        if (announcement) {
+          const message =
+            count === 1 ? "1 artwork found" : `${count} artworks found`;
+          announcement.textContent = message;
+
+          // Clear after announcement to allow repeat announcements
+          setTimeout(() => {
+            announcement.textContent = "";
+          }, 1000);
+        }
+      }
+
+      // Initialize on DOM ready
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", init);
+      } else {
+        init();
+      }
+
+      // Update carousel buttons on load
+      window.addEventListener("load", () => {
+        updateCarouselButtons();
+      });
+    </script>
+  </body>
+</html>
