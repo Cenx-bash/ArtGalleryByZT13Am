@@ -1,1 +1,1 @@
-# art-gallery-frontend
+# art
